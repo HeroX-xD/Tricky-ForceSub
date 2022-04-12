@@ -52,12 +52,6 @@
         {
             "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
         }
-    ],
-
-"formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "free"
-        }
+    ]
 }
 
