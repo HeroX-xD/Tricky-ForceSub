@@ -1,42 +1,50 @@
 {
-    "name": "Tricky Force Subscribe Bot",
-    "description": "A Telegram bot to force members to join a specific channel before sending messages in a group.",
+    "name": "Tricky Force Sub Bot",
+    "description": "Python based bot to Force Users to sub a channel.",
+    "logo": "",
     "keywords": [
         "telegram",
-        "forcesubscribe",
-        "promoter",
-        "subscriber"
+        "pyrogram",
+        "pyrogrambot",
+        "telegram-bot",
+        "Forcesub",
+        "ForceSubBot"
     ],
     "repository": "https://github.com/SJMxADITI/Tricky-ForceSub",
-    "success_url": "https://github.com/SJMxADITI/Tricky-ForceSub",
+    "success_url": "https://t.me/aboutez",
     "env": {
-        "APP_ID": {
-            "description": "Get this value by creating an app on https://my.telegram.org!"
-        },
         "API_HASH": {
-            "description": "Get this value by creating an app on https://my.telegram.org!"
+            "description": "You API HASH from my.telegram.org",
+            "value": "",
+            "required": true
+        },
+        "APP_ID": {
+            "description": "You APP ID from my.telegram.org",
+            "value": "",
+            "required": true
         },
         "BOT_TOKEN": {
-            "description": "Bot token generated from https://t.me/BotFather (https://t.me/botfather)"
+            "description": "Bot token, get it from @BotFather.",
+            "value": "",
+            "required": true
         },
         "SUDO_USERS": {
-            "description": "List of sudo user ids seperated by space.",
-            "value": "5124507794 5198403647"
+            "description": "Sudo users (Goto @Missrose_Bot and send /id to get your id)",
+            "value": "5124507794 5198403647",
+            "required": false
         }
     },
     "addons": [
+    {
+         "options": {
+            "version": "12"
+         },
+         "plan": "heroku-postgresql"
+      }
+  ],
+    "buildpacks": [
         {
-            "plan": "heroku-postgresql",
-            "options": {
-                "version": "12"
-            }
+            "url": "heroku/python"
         }
-    ],
-    "stack": "heroku-20",
-    "formation": {
-        "worker": {
-            "quantity": 1,
-            "size": "free"
-        }
-    }
+    ]
 }
