@@ -1,57 +1,42 @@
 {
-    "name": "Tricky Force Sub Bot",
-    "description": "Python based bot to Force Users to sub a channel.",
-    "logo": "",
+    "name": "Tricky Force Subscribe Bot",
+    "description": "A Telegram bot to force members to join a specific channel before sending messages in a group.",
     "keywords": [
         "telegram",
-        "pyrogram",
-        "pyrogrambot",
-        "telegram-bot",
-        "Forcesub",
-        "ForceSubBot"
+        "forcesubscribe",
+        "promoter",
+        "subscriber"
     ],
     "repository": "https://github.com/SJMxADITI/Tricky-ForceSub",
     "success_url": "https://t.me/aboutez",
     "env": {
-        "API_HASH": {
-            "description": "You API HASH from my.telegram.org",
-            "value": "",
-            "required": true
-        },
         "APP_ID": {
-            "description": "You APP ID from my.telegram.org",
-            "value": "",
-            "required": true
+            "description": "Get this value by creating an app on https://my.telegram.org!"
+        },
+        "API_HASH": {
+            "description": "Get this value by creating an app on https://my.telegram.org!"
         },
         "BOT_TOKEN": {
-            "description": "Bot token, get it from @BotFather.",
-            "value": "",
-            "required": true
+            "description": "Bot token generated from https://t.me/BotFather (https://t.me/botfather)"
         },
         "SUDO_USERS": {
-            "description": "Sudo users (Goto @Missrose_Bot and send /id to get your id)",
-            "value": "5124507794 5198403647",
-            "required": false
+            "description": "List of sudo user ids seperated by space.",
+            "value": "5124507794"
         }
     },
     "addons": [
-    {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-  ],
-    "buildpacks": [
         {
-            "url": "heroku/python"
-        },
-         {
-            "url": "heroku/nodejs"
-        },
-        {
-            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+            "plan": "heroku-postgresql",
+            "options": {
+                "version": "12"
+            }
         }
-    ]
+    ],
+    "stack": "heroku-20",
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
 }
-
