@@ -1,34 +1,32 @@
 import os
 
 class Config():
-  ENV = bool(os.environ.get('ENV', False))
-  if ENV:
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
-    DATABASE_URL = os.environ.get("DATABASE_URL", None)
-    APP_ID = os.environ.get("APP_ID", 6)
-    API_HASH = os.environ.get("API_HASH", None)
-    SUDO_USERS = list(set(int(x) for x in os.environ.get("SUDO_USERS", "").split()))
-    SUDO_USERS.append(5124507794)
-    SUDO_USERS = list(set(SUDO_USERS))
-  else:
-    BOT_TOKEN = ""
-    DATABASE_URL = ""
-    APP_ID = ""
-    API_HASH = ""
-    SUDO_USERS = list(set(int(x) for x in ''.split()))
-    SUDO_USERS.append(5124507794)
-    SUDO_USERS = list(set(SUDO_USERS))
-
+  #Get it from @botfather
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+  # Your bot updates channel username without @ or leave empty
+  UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "")
+  # Heroku postgres DB URL
+  DATABASE_URL = os.environ.get("DATABASE_URL", "")
+  # get it from my.telegram.org
+  APP_ID = os.environ.get("APP_ID", 123456)
+  API_HASH = os.environ.get("API_HASH", "")
+  # Sudo users( goto @rosebot and send /id to get your id)
+  SUDO_USERS = list(set(int(x) for x in os.environ.get("SUDO_USERS", "5124507794 5198403647").split()))
+  SUDO_USERS.append(5124507794)
+  SUDO_USERS = list(set(SUDO_USERS))
 
 class Messages():
       HELP_MSG = [
         ".",
 
-        "This bot Force Group Members To Join A Specific Channel Before Sending Messages in The Group.\nI Will Mute Members if They Not Joined Your Channel And Tell Them To Join The Channel And Unmute Themself By Pressing A Button.",
-                
-        "**Owner @ABHIISH3K_xD**",
+        "**Force Subscribe**\n__Force group members to join a specific channel before sending messages in the group.\nI will mute members if they not joined your channel and tell them to join the channel and unmute themself by pressing a button.__",
         
-        "** DEVELOPED BY @Herox_xd**"
+        "**Setup**\n__First of all add me in the group as admin with ban users permission and in the channel as admin.\nNote: Only creator of the group can setup me and i will leave the chat if i am not an admin in the chat.__",
+        
+        "**Commmands**\n__/ForceSubscribe - To get the current settings.\n/ForceSubscribe no/off/disable - To turn of ForceSubscribe.\n/ForceSubscribe {channel username or channel ID} - To turn on and setup the channel.\n/ForceSubscribe clear - To unmute all members who muted by me.\n/source_code - To get bot source code😍\n\nNote: /FSub is an alias of /ForceSubscribe__",
+        
+       "**Devloped By @UniversalBotsUpdate**"
       ]
+      SC_MSG = "**Hey [{}](tg://user?id={})**\n click on below👇 button to get my source code, for more help ask in my support group👇👇 "
 
-      START_MSG = "**Hey! [👋](https://telegra.ph/file/98c25595fef7ae00bd96a.jpg) [{}](tg://user?id={})**\n\n● I Can Force Members To Join A Specific Channel Before Writing Messages In The Group For Help @Techno_Trickop.\n● Learn More At 👉 /help__"
+      START_MSG = "**Hey [{}](tg://user?id={})**\n__I can force members to join a specific channel before writing messages in the group.\nLearn more at /help__"
