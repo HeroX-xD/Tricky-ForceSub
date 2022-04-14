@@ -2,7 +2,7 @@ import time
 import logging
 from Config import Config
 from pyrogram import Client, filters
-from Forcesub import Forcesql as sql
+from sql_helpers import forceSubscribe_sql as sql
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 
