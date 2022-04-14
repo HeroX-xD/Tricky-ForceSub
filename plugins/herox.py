@@ -6,7 +6,6 @@ from Forcesub import Forcesql as sql
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 
-
 logging.basicConfig(level=logging.INFO)
 
 static_data_filter = filters.create(lambda _, __, query: query.data == "onUnMuteRequest")
