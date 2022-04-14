@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Numeric, Boolean
-from sql_helpers import SESSION, BASE
+from Forcesub import SESSION, BASE
 
 class forceSubscribe(BASE):
     __tablename__ = "forceSubscribe"
