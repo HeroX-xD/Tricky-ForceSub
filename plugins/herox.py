@@ -2,9 +2,10 @@ import time
 import logging
 from Config import Config
 from pyrogram import Client, filters
-from Forcesub import sql as sql
+from Forcesub import Forcesql as sql
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -54,15 +55,15 @@ async def _check_member(client, message):
       except UserNotParticipant:
         try:
           sent_message = await message.reply_text(
-              " {} , ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ sᴜʙsᴄʀɪʙᴇᴅ ᴛᴏ ᴍʏ ᴄʜᴀɴɴᴇʟ ʏᴇᴛ. ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴜsɪɴɢ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ᴘʀᴇss ᴛʜᴇ ᴜɴᴍᴜᴛᴇ ᴍᴇ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴜɴᴍᴜᴛᴇ ʏᴏᴜʀsᴇʟғ.".format(message.from_user.mention, channel, channel),
+              " {} , you are not subscribed to my channel yet. Please join using below button and press the UnMute Me button to unmute yourself.".format(message.from_user.mention, channel, channel),
               disable_web_page_preview=True,
              reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("𝙎𝙪𝙗𝙨𝙘𝙧𝙞𝙗𝙚 𝘾𝙝𝙖𝙣𝙣𝙚𝙡", url=channel_url)
+                    InlineKeyboardButton("Subscribe My Channel", url=channel_url)
                 ],
                 [
-                    InlineKeyboardButton("𝙐𝙣𝙢𝙪𝙩𝙚 𝙈𝙚", callback_data="onUnMuteRequest")
+                    InlineKeyboardButton("UnMute Me", callback_data="onUnMuteRequest")
                 ]
             ]
         )
